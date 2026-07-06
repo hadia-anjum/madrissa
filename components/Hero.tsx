@@ -234,7 +234,7 @@ export default function Hero() {
             <div className="relative w-full" style={{ maxWidth: "320px" }}>
               <IslamicArch>
                 <Image
-                  src="/poster.png"
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/poster.png`}
                   alt="Weekly Hifz Class Poster"
                   width={250}
                   height={340}
