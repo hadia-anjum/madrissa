@@ -84,7 +84,7 @@ export default function Contact() {
               }}>
               ﴿ وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ ﴾
             </p>
-            <p className="text-white/60 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif", tracking: "0.02em" }}>
+            <p className="text-white/60 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif", letterSpacing: "0.02em" }}>
               "And We have certainly made the Quran easy for remembrance."
             </p>
           </div>

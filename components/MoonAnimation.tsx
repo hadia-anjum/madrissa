@@ -7,7 +7,6 @@ export default function MoonAnimation() {
       <div
         className="absolute inset-0 rounded-full"
         style={{
-          width: "90px", height: "90px",
           background: "radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 70%)",
           animation: "moonGlow 4s ease-in-out infinite",
           top: "-20px", left: "-20px",
