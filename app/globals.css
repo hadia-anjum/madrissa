@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+
+:root {
+  --green-dark:   #2d4a1e;
+  --green-mid:    #3d6b2a;
+  --green-main:   #4a7c35;
+  --green-light:  #6b9e4d;
+  --green-pale:   #d4e8c4;
+  --green-bg:     #eef5e7;
+  --gold:         #c9a84c;
+  --gold-light:   #e2c87a;
+  --gold-dark:    #a07830;
+  --cream:        #faf8f3;
+  --cream-warm:   #f5f1e8;
+  --off-white:    #f8f7f2;
+  --text-dark:    #1e2d14;
+  --text-mid:     #3a5228;
+  --text-light:   #6b8f5a;
+  --border-green: rgba(74, 124, 53, 0.25);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  direction: ltr;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cream-warm); }
+::-webkit-scrollbar-thumb { background: var(--green-main); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--green-dark); }
+::selection { background: rgba(74,124,53,0.18); color: var(--green-dark); }
+
+/* ── Font helpers ── */
+.font-urdu      { font-family: 'Noto Nastaliq Urdu', serif !important; }
+.font-arabic    { font-family: 'Scheherazade New', serif !important; }
+.font-cairo     { font-family: 'Cairo', sans-serif !important; }
+.font-poppins   { font-family: 'Poppins', sans-serif !important; }
+.font-amiri     { font-family: 'Amiri', serif !important; }
+
+/* ── Islamic Arch SVG frame ── */
+.arch-frame {
+  position: relative;
+  display: inline-block;
+}
+
+/* ── Green badge pill ── */
+.badge-pill {
+  display: inline-block;
+  background: var(--green-dark);
+  color: white;
+  padding: 6px 28px;
+  border-radius: 4px;
+  position: relative;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  clip-path: polygon(8px 0%, calc(100% - 8px) 0%, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0% 50%);
+}
+
+/* ── Arabesque pattern ── */
+.arabesque-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cpath d='M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z' fill='none' stroke='rgba(74,124,53,0.06)' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='rgba(74,124,53,0.04)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+}
+
+/* ── Animations ── */
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(201,168,76,0.2); }
+  50% { box-shadow: 0 0 40px rgba(201,168,76,0.45); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes leafSway {
+  0%, 100% { transform: rotate(-5deg) scale(1); }
+  50% { transform: rotate(5deg) scale(1.05); }
+}
+
+.animate-float    { animation: floatUp 5s ease-in-out infinite; }
+.animate-glow     { animation: glowPulse 3s ease-in-out infinite; }
+.animate-shimmer  { animation: shimmer 3s linear infinite; }
+.animate-fade-up  { animation: fadeInUp 0.9s ease-out forwards; }
+.animate-leaf     { animation: leafSway 4s ease-in-out infinite; }
+
+/* ── Scroll reveal utility ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Floral border ── */
+.floral-border-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(201,168,76,0.6) 15%,
+    rgba(74,124,53,0.8) 35%,
+    rgba(201,168,76,1) 50%,
+    rgba(74,124,53,0.8) 65%,
+    rgba(201,168,76,0.6) 85%,
+    transparent 100%);
+  pointer-events: none;
+}
+.floral-border-bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(74,124,53,0.6) 15%,
+    rgba(201,168,76,0.8) 35%,
+    rgba(74,124,53,1) 50%,
+    rgba(201,168,76,0.8) 65%,
+    rgba(74,124,53,0.6) 85%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+/* ── Extra animations ── */
+@keyframes moonGlow {
+  0%,100% { box-shadow: 0 0 20px rgba(201,168,76,0.3); }
+  50%      { box-shadow: 0 0 50px rgba(201,168,76,0.6), 0 0 80px rgba(201,168,76,0.2); }
+}
+@keyframes slowGlow {
+  0%,100% { opacity: 0.7; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.1); }
+}
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+@keyframes ripple {
+  0%   { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+@keyframes bounce {
+  0%,80%,100% { transform: scale(0.6); opacity: 0.4; }
+  40%          { transform: scale(1.2); opacity: 1; }
+}
+
+/* ── Glow button base ── */
+.btn-glow-gold {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btn-glow-gold::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -60%;
+  width: 60%; height: 200%;
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: skewX(-20deg);
+  animation: shimmer 2s linear infinite;
+}
+
+/* ── Responsive mobile ── */
+@media (max-width: 480px) {
+  .lantern { display: none !important; }
+}
+
+/* ── Glass card ── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(74, 124, 53, 0.18);
+  border-radius: 20px;
+}
+
+/* ── Loader ── */
+#loader {
+  position: fixed; inset: 0;
+  background: var(--cream);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+#loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+/* ── Global Keyframes for Hero ── */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes posterFloat {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+@keyframes leafSway {
+  0%,100% { transform: rotate(-3deg); }
+  50%      { transform: rotate(4deg); }
+}
+@keyframes waPulse {
+  0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.38), 0 0 0 0 rgba(37,211,102,0.25); }
+  50%      { box-shadow: 0 4px 20px rgba(37,211,102,0.38), 0 0 0 10px rgba(37,211,102,0); }
+}
