@@ -238,7 +238,7 @@ export default function Hero() {
                   alt="Weekly Hifz Class Poster"
                   width={250}
                   height={340}
-                  className="rounded-xl object-cover w-full h-auto"
+                  className="rounded-xl object-contain w-full h-full"
                   style={{
                     boxShadow: "0 12px 36px rgba(45,74,30,0.18), 0 4px 12px rgba(201,168,76,0.12)",
                     border: "2px solid rgba(201,168,76,0.22)",

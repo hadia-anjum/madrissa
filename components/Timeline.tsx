@@ -97,7 +97,7 @@ export default function Timeline() {
             }}
           >
             <p className="text-sm text-[#3a5228]/90 font-medium leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>
-              💻 <span className="text-[#2d4a1e] font-bold">Online Attendance:</span> If you are unable to attend the classes in person, you can easily join online via <span className="text-[#4a7c35] font-semibold">WhatsApp Call</span> or <span className="text-[#4a7c35] font-semibold">Zoom</span>.
+              💻 <span className="text-[#2d4a1e] font-bold">Online Attendance:</span> If you are unable to attend the classes in person, you can easily join online via <span className="text-[#4a7c35] font-semibold">WhatsApp Call</span>.
             </p>
           </div>
         </div>
