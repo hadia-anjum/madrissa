@@ -16,7 +16,7 @@ export default function About() {
   const features = [
     { title: "Purpose",           desc: "Memorize the Holy Quran and benefit from its eternal blessings in daily life." },
     { title: "Teaching Method",   desc: "Structured, easy-to-follow system under the guidance of experienced female teachers." },
-    { title: "Peaceful Setting",  desc: "A calm, women-only environment designed to help you focus and grow spiritually." },
+    { title: "Peaceful Setting",  desc: "A fully air-conditioned, calm, and peaceful women-only environment designed to help you focus and grow spiritually." },
     { title: "Weekly Progress",   desc: "Regular Thursday sessions with tracked progress and personal attention." },
     { title: "Righteous Company", desc: "Surround yourself with like-minded sisters in faith every week." },
   ];
